@@ -27,4 +27,27 @@ public class BinarySearchTreeTest {
         Assert.assertTrue(result);
         bst.getInOrder();
     }
+
+    @Test
+    public void checkElements(){
+
+        Node<Integer> first = new Node(56);
+        Node<Integer> second = new Node(30);
+        Node<Integer> third = new Node(70);
+
+        bst.add(first);
+        bst.add(second);
+        bst.add(third);
+
+        int size= bst.size();
+        Assert.assertEquals(3,size);
+
+        bst.getInOrder();
+        System.out.println();
+
+        bst.getPostorder();
+        System.out.println();
+        
+        bst.getPreorder();
+    }
 }
