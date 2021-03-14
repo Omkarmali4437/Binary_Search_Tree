@@ -47,7 +47,26 @@ public class BinarySearchTreeTest {
 
         bst.getPostorder();
         System.out.println();
-        
+
         bst.getPreorder();
+    }
+
+    @Test
+    public void checkElementPresentOrNot() {
+        Node<Integer> first = new Node(56);
+        Node<Integer> second = new Node(30);
+        Node<Integer> third = new Node(70);
+        Node<Integer> fourth = new Node(63);
+
+        bst.add(first);
+        bst.add(second);
+        bst.add(third);
+        bst.add(fourth);
+        bst.getInOrder();
+        bst.size();
+
+
+        Node result = bst.getSearch(63);
+        Assert.assertEquals(63, result.data);
     }
 }

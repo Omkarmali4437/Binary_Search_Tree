@@ -1,6 +1,6 @@
 package com.myPackage;
 
-public class BinarySearchTree {
+public class BinarySearchTree<T extends Comparable> {
 
     public Node root;
 
@@ -62,13 +62,29 @@ public class BinarySearchTree {
             System.out.print(" " + root.data);
         }
     }
+
     public int size() {
         return(size(root));
     }
+
     private int size(Node node) {
         if (node == null) return(0);
         else {
             return(size(node.left) + 1 + size(node.right));
         }
+    }
+
+    public <T extends Comparable> Node getSearch(T data){
+        System.out.println("\n Element " + data + " found");
+        return search(root, data);
+    }
+
+    public <T extends Comparable> Node search(Node root, T data) {
+        if (root == null || root.data == data)
+            return root;
+        else if (root.data.compareTo(data) < 0)
+            return search(root.right, data);
+        else
+            return search(root.left, data);
     }
 }
